@@ -84,3 +84,22 @@ Match3.Board.prototype.consoleLog =  function() {
 
   console.log(stringOuput);
 };
+
+// swapping blocks
+Match3.Board.prototype.swapping = function(at, target) {
+  var holder = this.grid[target.row][target.col];
+  this.grid[target.row][target.col] = this.grid[at.row][at.col];
+  this.grid[at.row][at.col] = holder;
+
+  this.consoleLog();
+};
+
+// check if blocks are adjacent
+Match3.Board.prototype.checkAdjacent = function(at, target) {
+  var diffRow = Math.abs(at.row - target.row);
+  var diffCol = Math.abs(at.col - target.col);
+
+  var isAdjactent = (diffRow == 1 && diffCol === 0) || (diffRow == 0 && diffCol === 1);
+
+  return isAdjactent;
+};
