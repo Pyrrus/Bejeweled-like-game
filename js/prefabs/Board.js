@@ -219,5 +219,6 @@ Match3.Board.prototype.updateGrid = function() {
     }
   }
 
+  // reset the reserve grid
   this.populateReserveGrid();
 };
